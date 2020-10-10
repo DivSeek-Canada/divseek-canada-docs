@@ -9,7 +9,7 @@ on: [push]
 jobs:
   # This job builds the docs.
   build_docs_job:     
-    if: (github.repository == 'DivSeek-Canada/divseek-canada-docs') && (github.ref == 'refs/heads/master'))
+    if: (github.repository == 'DivSeek-Canada/divseek-canada-docs') && (github.ref == 'refs/heads/master')
     runs-on: ubuntu-latest
     name: Build docs    
     steps:   
