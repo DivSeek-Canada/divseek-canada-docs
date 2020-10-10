@@ -29,7 +29,7 @@ jobs:
     - name: Run Sphinx in RTD docker      
       uses: DavidLeoni/readthedocs-to-actions@v1.1
       with:
-        RTD_PRJ_NAME: DivSeek Canada Documentation        
+        RTD_PRJ_NAME: DivSeekCanadaDocs
         GIT_URL: https://github.com/${{ github.repository }}.git
         GIT_TAG: ${{ env.GIT_TAG }}
         VERSION: ${{ env.VERSION }}
