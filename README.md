@@ -1,2 +1,3 @@
-# divseek-canada-docs
-Documentation for the DivSeek Canada pilot project.
+# DivSeek Canada Documentation
+
+This repository hosts documentation for the DivSeek Canada pilot project.
