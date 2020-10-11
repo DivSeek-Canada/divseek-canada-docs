@@ -43,7 +43,7 @@ jobs:
         tree -aC $GITHUB_WORKSPACE
     - name: Commit documentation changes
       run: |
-        git clone https://github.com/${{ github.repository }}.git --branch gh-pages --single-branch gh-pages
+        git clone https://github.com/${{ github.repository }}.git --branch master --single-branch gh-pages
         
         mkdir -p gh-pages/${{ env.WEB_PATH }}
         cp -r $GITHUB_WORKSPACE/html/* gh-pages/${{ env.WEB_PATH }}
@@ -70,6 +70,6 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        branch: gh-pages
+        branch: master
         directory: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
