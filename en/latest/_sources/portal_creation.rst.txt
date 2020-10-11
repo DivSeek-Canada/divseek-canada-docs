@@ -10,4 +10,5 @@ This guide will walk you through how to create a copy of the DivSeek Portal. The
 
    portal_creation/hosting
    portal_creation/prereqs
+   portal_creation/deploy
    portal_creation/troubleshooting
