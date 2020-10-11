@@ -3,6 +3,12 @@ The DivSeek Canada Portal
 
 The DivSeek Canada Portal is a web-based platform to implement association genetics workflows supporting plant breeding and crop research focusing on large scale plant genetic resources / crop genotype-phenotype data sets whose access is brokered / managed by the project.
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Guides:
+
+   portal_creation
+
 Genome Canada Pilot Project
 -----------------------------
 
@@ -15,7 +21,3 @@ The first iteration of the platform is funded under a `Genome Canada Project <ht
   The platform not only provides an expandable database for Canadian crop information, but also offers a model for the DivSeek initiative globally. It is expected to galvanize the use of genomic information by plant breeders to accelerate crop breeding in Canada, particularly in small to medium-sized crop communities who have not previously had the financial resources or bioinformatics skill set to exploit the genomic information available.
 
   -- DivSeek Canada: Harnessing Genomics to Accelerate Crop Improvement in Canada
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Guides:
