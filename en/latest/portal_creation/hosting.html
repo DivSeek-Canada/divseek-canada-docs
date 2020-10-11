@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Finding a place to Host your Portal &mdash; DivSeek Canada Portal  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Create DivSeek Canada Portal Guide" href="../portal_creation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> DivSeek Canada Portal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../portal_creation.html">Create DivSeek Canada Portal Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Finding a place to Host your Portal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#computecanada-openstack-cloud-setup">ComputeCanada OpenStack Cloud setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-cloud-instance">Create the Cloud Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker-image-and-volume-storage">Docker Image and Volume Storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DivSeek Canada Portal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../portal_creation.html">Create DivSeek Canada Portal Guide</a> &raquo;</li>
+        
+      <li>Finding a place to Host your Portal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/portal_creation/hosting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="finding-a-place-to-host-your-portal">
+<h1>Finding a place to Host your Portal<a class="headerlink" href="#finding-a-place-to-host-your-portal" title="Permalink to this headline">¶</a></h1>
+<p>The DivSeek Canada Portal is being designed to run within a Docker Compose deployed system of Docker containers when the application is run on a Linux server or virtual machine.</p>
+<p>Platform Requirements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>An operating system able to install docker and run instances; Linux preferred.</p></li>
+<li><p>The ability to expose ports to the outside world.</p></li>
+<li><dl class="simple">
+<dt>Enough physical space to house the website containing your data. You can choose to keep all of the following on a single partition of at least 720Gb or to separate into individual partitions as follows:</dt><dd><ul>
+<li><p>Root partition: at least 20Gb</p></li>
+<li><p>Docker partition: at least 200Gb for docker</p></li>
+<li><p>Each Crop partition: at least 500Gb</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Enough processing power to quickly deliver pages (at least 4 core, 6 GB RAM) with additional processing power required for analysis completed via Galaxy.</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="computecanada-openstack-cloud-setup">
+<h2>ComputeCanada OpenStack Cloud setup<a class="headerlink" href="#computecanada-openstack-cloud-setup" title="Permalink to this headline">¶</a></h2>
+<p>We have chosen to host the main DivSeek Canada portal on the ComputeCanada Cloud. To do so for your portal, first request an allocation which based on the platform requirements listed above. The following steps indicate how to prepare your allocation for your own portal.</p>
+<div class="section" id="create-the-cloud-instance">
+<h3>Create the Cloud Instance<a class="headerlink" href="#create-the-cloud-instance" title="Permalink to this headline">¶</a></h3>
+<p>We start by creating a persistent p4-6gb (4 core, 6 GB RAM) flavour of compute instance. The security group should open up the TCP/IP ports exposed by the various docker instances, as specified in the project’s docker-compose.yml file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to ensure that the “root” partition gets a sufficiently large disk volume size - typically, at least 20 gigabytes - generally larger than the default image size - which is sometimes as small as 2 gigabytes. This root volume size must be explicitly set during cloud instance launch since it is not generally changeable after the instance has been launched.</p>
+</div>
+</div>
+<div class="section" id="docker-image-and-volume-storage">
+<h3>Docker Image and Volume Storage<a class="headerlink" href="#docker-image-and-volume-storage" title="Permalink to this headline">¶</a></h3>
+<p>By default, the Docker image/volume cache (and other metadata) resides under /var/lib/docker which will end up being hosted on the root volume of a cloud image, which may be relatively modest in size. To avoid “out of file storage” messages, which related to limits in inode and actual byte storage, it is advised that you remap (and copy the default contents of) the /var/lib/docker directory onto an extra mounted storage volume (which should be configured to be automounted by fstab configuration).</p>
+<p>In effect, it is generally useful to host the entire portal and its associated docker storage volumes on such an extra mounted volume. We generally use the /opt subdirectory as the target of the mount, then directly install various code and related subdirectories there, including the physical target of a symbolic link to the /var/lib/docker subdirectory. You will generally wish to set this latter symbolic link first before installing Docker itself (here we assume that docker has not yet been installed (let alone running).</p>
+<p>In Compute Canada, using the OpenStack dashboard, a cloud “Volume” can be created and attached to a running DivSeek Canada Portal cloud server instance. We suggest creating a volume at least 200 GB in size (to allow for significant genomic data storage). After attaching the volume to the instance, the volume is initialized and mounted from within an SSH terminal session, as follows (where ‘$’ is the Linux Bash CLI terminal prompt):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before starting, make sure that the new volume (here, &#39;vdb&#39;) is visible (should be!)</span>
+<span class="c1"># NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span>
+<span class="c1"># vda     254:0    0  2.2G  0 disk</span>
+<span class="c1"># ├─vda1  254:1    0  2.1G  0 part /</span>
+<span class="c1"># ├─vda14 254:14   0    4M  0 part</span>
+<span class="c1"># └─vda15 254:15   0  106M  0 part /boot/efi</span>
+<span class="c1"># vdb     254:16   0  200G  0 disk</span>
+
+<span class="c1"># First, initialize the filing system on the new, empty, raw volume (assumed here to be on /dev/vdb)</span>
+sudo mkfs -t ext4 /dev/vdb
+
+<span class="c1"># Mount the new volume in its place (we assume that the folder &#39;/opt&#39; already exists)</span>
+sudo mount /dev/vdb /opt
+
+<span class="c1"># Provide a symbolic link to the future home of the docker storage subdirectories</span>
+sudo mkdir /opt/docker
+sudo chmod go-r /opt/docker
+
+<span class="c1"># It is assumed that /var/lib/docker doesn&#39;t already exist.</span>
+<span class="c1"># Otherwise, you&#39;ll need to delete it first, then create the symlink</span>
+sudo ln -s /opt/docker /var/lib
+</pre></div>
+</div>
+<p>It is also recommended that a separate additional volume for each crop dataset deployed be created, following the above instructions. A 500 GB volume is likely to be needed for this given the genomic large data sets involved. Also, you can attach volumes containing the raw input data (e.g. VCF files) as you need (Note: you should obviously not run the mkfs command afresh on any volumes which already have data!) It is recommended first that you create a subdirectory /opt/divseekcanada then mount these additional volumes in that subdirectory, namely something like the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a master folder for the DivSeek Canada code</span>
+sudo mkdir -p /opt/divseekcanada
+<span class="c1"># ensuring easy $USER access to these resources</span>
+sudo chown ubuntu:ubuntu /opt/divseekcanada
+<span class="c1"># Add the data volumes</span>
+sudo mkdir -p /opt/divseekcanada/data/downy-mildew
+sudo mount /dev/vdc /opt/divseekcanada/data/downy-mildew
+sudo mkdir -p /opt/divseekcanada/Sunflower
+sudo mount /dev/vdd /opt/divseekcanada/Sunflower
+
+After completing the above steps, you should configure /etc/fstab file <span class="k">for</span> system boot up mounting of the new volumes:
+
+<span class="c1"># These volumes need to be auto mounted upon each reboot of the system</span>
+<span class="c1"># so you should (carefully) add them to the Linux /etc/fstab file</span>
+<span class="c1"># of the server, something like the following text entries (customize for your crop):</span>
+/dev/vdb        /opt    ext4    rw,relatime     <span class="m">0</span>       <span class="m">0</span>
+/dev/vdc        /opt/divseekcanada/data/downy-mildew    ext4    rw,relatime     <span class="m">0</span>       <span class="m">0</span>
+/dev/vdd        /opt/divseekcanada/Sunflower    ext4    rw,relatime     <span class="m">0</span>       <span class="m">0</span>
+
+<span class="c1"># test the fstab mount with a &#39;fake&#39; mounting</span>
+sudo mount -vf
+</pre></div>
+</div>
+<p>Now, you can proceed to install Docker and Docker Compose.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../portal_creation.html" class="btn btn-neutral float-left" title="Create DivSeek Canada Portal Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Lacey-Anne Sanderson
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
