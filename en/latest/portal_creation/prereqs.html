@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Install Pre-requisites &mdash; DivSeek Canada Portal  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Finding a place to Host your Portal" href="hosting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> DivSeek Canada Portal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../portal_creation.html">Create DivSeek Canada Portal Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hosting.html">Finding a place to Host your Portal</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Install Pre-requisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-of-docker">Installation of Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testing-docker">Testing Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-docker-compose">Installing Docker Compose</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testing-docker-compose">Testing Docker Compose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DivSeek Canada Portal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../portal_creation.html">Create DivSeek Canada Portal Guide</a> &raquo;</li>
+        
+      <li>Install Pre-requisites</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/portal_creation/prereqs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="install-pre-requisites">
+<h1>Install Pre-requisites<a class="headerlink" href="#install-pre-requisites" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation-of-docker">
+<h2>Installation of Docker<a class="headerlink" href="#installation-of-docker" title="Permalink to this headline">¶</a></h2>
+<p>To run Docker, you’ll obviously need to <a class="reference external" href="https://docs.docker.com/engine/installation/">install Docker first</a> in your target Linux operating environment (bare metal server or virtual machine running Linux).</p>
+<p>For our installations, we typically use Ubuntu Linux, for which there is an <a class="reference external" href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository">Ubuntu-specific docker installation</a> using the repository. Note that you should have ‘curl’ installed first before installing Docker:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">curl</span>
+</pre></div>
+</div>
+<p>For other installations, please find instructions specific to your choice of Linux variant, on the Docker site.</p>
+<div class="section" id="testing-docker">
+<h3>Testing Docker<a class="headerlink" href="#testing-docker" title="Permalink to this headline">¶</a></h3>
+<p>In order to ensure that Docker is working correctly, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+</pre></div>
+</div>
+<p>This should result in something akin to the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Unable to find image &#39;hello-world:latest&#39; locally
+latest: Pulling from library/hello-world
+ca4f61b1923c: Pull complete
+Digest: sha256:be0cd392e45be79ffeffa6b05338b98ebb16c87b255f48e297ec7f98e123905c
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+
+  docker run -it ubuntu bash
+
+  Share images, automate workflows, and more with a free Docker ID:
+    https://cloud.docker.com/
+
+  For more examples and ideas, visit:
+    https://docs.docker.com/engine/userguide/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-docker-compose">
+<h2>Installing Docker Compose<a class="headerlink" href="#installing-docker-compose" title="Permalink to this headline">¶</a></h2>
+<p>You will then also need to <a class="reference external" href="https://docs.docker.com/compose/install/">install Docker Compose</a> alongside Docker on your target Linux operating environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that under Ubuntu, you likely need to do a bit more preparation to avoid having to run docker (and docker-compose) as ‘sudo’. See <a class="reference external" href="https://docs.docker.com/install/linux/linux-postinstall/">here</a> for details on how to fix this.</p>
+</div>
+<div class="section" id="testing-docker-compose">
+<h3>Testing Docker Compose<a class="headerlink" href="#testing-docker-compose" title="Permalink to this headline">¶</a></h3>
+<p>In order to ensure Docker Compose is working correctly, issue the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">version</span> <span class="mf">1.22</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">build</span> <span class="n">f46880f</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that your particular version and build number may be different than what is shown here. We don’t currently expect that docker-compose version differences should have a significant impact on the build, but if in doubt, refer to the release notes of the docker-compose site for advice.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hosting.html" class="btn btn-neutral float-left" title="Finding a place to Host your Portal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Lacey-Anne Sanderson
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
