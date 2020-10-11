@@ -9,3 +9,5 @@ This guide will walk you through how to create a copy of the DivSeek Portal. The
    :caption: Steps:
 
    portal_creation/hosting
+   portal_creation/prereqs
+   portal_creation/troubleshooting
