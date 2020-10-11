@@ -78,3 +78,30 @@ In order to ensure Docker Compose is working correctly, issue the following comm
 .. note::
 
   Note that your particular version and build number may be different than what is shown here. We don't currently expect that docker-compose version differences should have a significant impact on the build, but if in doubt, refer to the release notes of the docker-compose site for advice.
+
+Installing the DivSeek Canada Portal code base
+------------------------------------------------
+
+This project resides in `this Github project repository <https://github.com/DivSeek-Canada/divseek-canada-portal>`_.
+
+First, ensure that you have the git client installed (here again, we assume Ubuntu; '$' is the bash CLI prompt):
+
+.. code::
+
+  sudo apt update
+  sudo apt install git
+
+Next, you should configure git with your Git repository metadata and, perhaps, activate credential management (we use 'cache' mode here to avoid storing credentials in plain text on disk)
+
+.. code::
+
+  git config --global user.name "your-git-account"
+  git config --global user.email "your-email"
+  git config --global credential.helper cache
+
+Then, you can clone the project. A convenient location for the code is in a folder under /opt/divseekcanada:
+
+.. code::
+
+  cd /opt/divseekcanada
+  git clone https://github.com/DivSeek-Canada/divseek-canada-portal
