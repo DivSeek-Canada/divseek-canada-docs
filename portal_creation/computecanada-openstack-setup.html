@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ComputeCanada OpenStack Cloud setup &mdash; DivSeek Canada Portal  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Pre-requisites" href="prereqs.html" />
+    <link rel="prev" title="Finding a place to Host your Portal" href="hosting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> DivSeek Canada Portal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../portal_creation.html">Create DivSeek Canada Portal Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="hosting.html">Finding a place to Host your Portal</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ComputeCanada OpenStack Cloud setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-cloud-instance">Create the Cloud Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker-image-and-volume-storage">Docker Image and Volume Storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="prereqs.html">Install Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html">Deployment of the Portal System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DivSeek Canada Portal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../portal_creation.html">Create DivSeek Canada Portal Guide</a> &raquo;</li>
+        
+          <li><a href="hosting.html">Finding a place to Host your Portal</a> &raquo;</li>
+        
+      <li>ComputeCanada OpenStack Cloud setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/portal_creation/computecanada-openstack-setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="computecanada-openstack-cloud-setup">
+<h1>ComputeCanada OpenStack Cloud setup<a class="headerlink" href="#computecanada-openstack-cloud-setup" title="Permalink to this headline">¶</a></h1>
+<p>We have chosen to host the main DivSeek Canada portal on the ComputeCanada Cloud. To do so for your portal, first request an allocation which based on the platform requirements listed on the parent page. The following steps indicate how to prepare your allocation for your own portal.</p>
+<div class="section" id="create-the-cloud-instance">
+<h2>Create the Cloud Instance<a class="headerlink" href="#create-the-cloud-instance" title="Permalink to this headline">¶</a></h2>
+<p>This guide will walk you through how to create an instance with the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>a persistent p4-6gb (4 core, 6 GB RAM)</p></li>
+<li><p>at least 20GB hard-drive space to store the docker image/container</p></li>
+<li><p>open all TCP/IP ports exposed by the various docker instances</p></li>
+<li><p>a Linux operating system</p></li>
+<li><p>connected to your pre-existing network</p></li>
+<li><p>a keypair in place to access the instance remotely.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Login to your cloud portal and access the instance dashboard by clicking on instances in the side menu.</p></li>
+<li><p>At the top of the instance listing, click “Launch Instance” to create a new instance for your portal.</p></li>
+<li><p>Fill out the name and description and choose an availability zone indicating persistent storage.</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/CCopenstack.instancesetup.step3.png" src="../_images/CCopenstack.instancesetup.step3.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Select a source image to provision your instance. This should be a linux operating system (i.e. Ubuntu, Debian, Redhat, Centos).</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/CCopenstack.instancesetup.step3.png" src="../_images/CCopenstack.instancesetup.step3.png" />
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>The flavour indicates the machine stats your instance will have. Choose at least persistent p4-6gb (4 core, 6 GB RAM with 20GB storage space) or higher.</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/CCopenstack.instancesetup.step3.png" src="../_images/CCopenstack.instancesetup.step3.png" />
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>For networks, select an already set-up network. Networks can be set-up ahead of time by clicking on the networks tab on the side menu. <strong>MORE DETAILS NEEDED</strong>. Since you have chosen a network, you do not need to choose network ports.</p></li>
+<li><p>Choose security groups which expose the ports required by the docker images you are launching. <strong>MORE DETAILS NEEDED</strong>.</p></li>
+<li><p>Create a keypair specific to this instance to provide SSH command-line access to the instance and make sure it is allocated.</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/CCopenstack.instancesetup.step3.png" src="../_images/CCopenstack.instancesetup.step3.png" />
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>Finally, click “Launch Instance”. This will launch the scheduler to create the instance and then build it. When it is complete your instance should be added to the list.</p></li>
+</ol>
+<blockquote>
+<div><img alt="../_images/CCopenstack.instancesetup.step3.png" src="../_images/CCopenstack.instancesetup.step3.png" />
+</div></blockquote>
+<p>To connect to your instance, first SSH into your allocation. Then use your key you created and floating IP address assigned above. For example,</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">i</span> <span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">tripal</span><span class="o">-</span><span class="n">production</span><span class="o">-</span><span class="n">portal</span><span class="o">.</span><span class="n">pem</span> <span class="n">ubuntu</span><span class="o">@</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">120.15</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="docker-image-and-volume-storage">
+<h2>Docker Image and Volume Storage<a class="headerlink" href="#docker-image-and-volume-storage" title="Permalink to this headline">¶</a></h2>
+<p>By default, the Docker image/volume cache (and other metadata) resides under /var/lib/docker which will end up being hosted on the root volume of a cloud image, which may be relatively modest in size. To avoid “out of file storage” messages, which related to limits in inode and actual byte storage, it is advised that you remap (and copy the default contents of) the /var/lib/docker directory onto an extra mounted storage volume (which should be configured to be automounted by fstab configuration).</p>
+<p>In effect, it is generally useful to host the entire portal and its associated docker storage volumes on such an extra mounted volume. We generally use the /opt subdirectory as the target of the mount, then directly install various code and related subdirectories there, including the physical target of a symbolic link to the /var/lib/docker subdirectory. You will generally wish to set this latter symbolic link first before installing Docker itself (here we assume that docker has not yet been installed (let alone running).</p>
+<p>In Compute Canada, using the OpenStack dashboard, a cloud “Volume” can be created and attached to a running DivSeek Canada Portal cloud server instance. We suggest creating a volume at least 200 GB in size (to allow for significant genomic data storage). After attaching the volume to the instance, the volume is initialized and mounted from within an SSH terminal session, as follows (where ‘$’ is the Linux Bash CLI terminal prompt):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before starting, make sure that the new volume (here, &#39;vdb&#39;) is visible (should be!)</span>
+<span class="c1"># NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span>
+<span class="c1"># vda     254:0    0  2.2G  0 disk</span>
+<span class="c1"># ├─vda1  254:1    0  2.1G  0 part /</span>
+<span class="c1"># ├─vda14 254:14   0    4M  0 part</span>
+<span class="c1"># └─vda15 254:15   0  106M  0 part /boot/efi</span>
+<span class="c1"># vdb     254:16   0  200G  0 disk</span>
+
+<span class="c1"># First, initialize the filing system on the new, empty, raw volume (assumed here to be on /dev/vdb)</span>
+sudo mkfs -t ext4 /dev/vdb
+
+<span class="c1"># Mount the new volume in its place (we assume that the folder &#39;/opt&#39; already exists)</span>
+sudo mount /dev/vdb /opt
+
+<span class="c1"># Provide a symbolic link to the future home of the docker storage subdirectories</span>
+sudo mkdir /opt/docker
+sudo chmod go-r /opt/docker
+
+<span class="c1"># It is assumed that /var/lib/docker doesn&#39;t already exist.</span>
+<span class="c1"># Otherwise, you&#39;ll need to delete it first, then create the symlink</span>
+sudo ln -s /opt/docker /var/lib
+</pre></div>
+</div>
+<p>It is also recommended that a separate additional volume for each crop dataset deployed be created, following the above instructions. A 500 GB volume is likely to be needed for this given the genomic large data sets involved. Also, you can attach volumes containing the raw input data (e.g. VCF files) as you need (Note: you should obviously not run the mkfs command afresh on any volumes which already have data!) It is recommended first that you create a subdirectory /opt/divseekcanada then mount these additional volumes in that subdirectory, namely something like the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a master folder for the DivSeek Canada code</span>
+sudo mkdir -p /opt/divseekcanada
+<span class="c1"># ensuring easy $USER access to these resources</span>
+sudo chown ubuntu:ubuntu /opt/divseekcanada
+<span class="c1"># Add the data volumes</span>
+sudo mkdir -p /opt/divseekcanada/data/downy-mildew
+sudo mount /dev/vdc /opt/divseekcanada/data/downy-mildew
+sudo mkdir -p /opt/divseekcanada/Sunflower
+sudo mount /dev/vdd /opt/divseekcanada/Sunflower
+
+After completing the above steps, you should configure /etc/fstab file <span class="k">for</span> system boot up mounting of the new volumes:
+
+<span class="c1"># These volumes need to be auto mounted upon each reboot of the system</span>
+<span class="c1"># so you should (carefully) add them to the Linux /etc/fstab file</span>
+<span class="c1"># of the server, something like the following text entries (customize for your crop):</span>
+/dev/vdb        /opt    ext4    rw,relatime     <span class="m">0</span>       <span class="m">0</span>
+/dev/vdc        /opt/divseekcanada/data/downy-mildew    ext4    rw,relatime     <span class="m">0</span>       <span class="m">0</span>
+/dev/vdd        /opt/divseekcanada/Sunflower    ext4    rw,relatime     <span class="m">0</span>       <span class="m">0</span>
+
+<span class="c1"># test the fstab mount with a &#39;fake&#39; mounting</span>
+sudo mount -vf
+</pre></div>
+</div>
+<p>Now, you can proceed to install Docker and Docker Compose.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="prereqs.html" class="btn btn-neutral float-right" title="Install Pre-requisites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hosting.html" class="btn btn-neutral float-left" title="Finding a place to Host your Portal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Lacey-Anne Sanderson
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
