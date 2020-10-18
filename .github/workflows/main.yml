@@ -12,16 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Move to expected docs folder
-      run: |
-        mkdir -p docs/
-        cp -r !(docs) docs
     - name: install theme
       run: |
         pip install sphinx_rtd_theme
     - uses: ammaraskar/sphinx-action@master
       with:
-        docs-folder: "docs"
+        docs-folder: "."
     - name: Commit documentation changes
       run: |
         git clone https://github.com/DivSeek-Canada/divseek-canada-docs.git --branch master --single-branch gh-pages
