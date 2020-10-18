@@ -14,7 +14,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Move to expected docs folder
       run: |
-        cp -r * ./docs
+        mkdir -p docs/
+        cp -r * docs
     - name: install theme
       run: |
         pip install sphinx_rtd_theme
