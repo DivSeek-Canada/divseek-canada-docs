@@ -11,13 +11,13 @@ jobs:
   build_docs_job:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: install theme
-      run: |
-        pip install sphinx_rtd_theme
-    - uses: ammaraskar/sphinx-action@master
+    - name: Checkout my documentation
+      uses: actions/checkout@v1
+    - name: Build Docs
+      uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs"
+        pre-build-command: "pip install sphinx_rtd_theme"
     - name: Commit documentation changes
       run: |
         git clone https://github.com/DivSeek-Canada/divseek-canada-docs.git --branch master --single-branch gh-pages
