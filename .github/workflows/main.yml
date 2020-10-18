@@ -15,7 +15,7 @@ jobs:
     - name: Move to expected docs folder
       run: |
         mkdir -p docs/
-        cp -r * docs
+        cp -r !(docs) docs
     - name: install theme
       run: |
         pip install sphinx_rtd_theme
